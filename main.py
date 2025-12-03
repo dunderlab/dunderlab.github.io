@@ -239,7 +239,7 @@ class StaticApp(RadiantAPI):
             container <= html.H1('Projects & Developments', Class='dunderlab--container-title')
             with html.DIV(Class='row').context as row:
 
-                for i, project in enumerate(projects):
+                for i, project in enumerate(sorted(projects, key=lambda x: x['year'], reverse=True)):
 
                     if i % 2 == 0:
                         style = 'dunderlab-dev--align-right'
@@ -269,14 +269,22 @@ class StaticApp(RadiantAPI):
                         col <= html.DIV(project['description'], Class=style)
 
                         with html.DIV(Class=f'dunderlab-line {style}').context(col) as line:
-                            line <= icons.fa('book', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-pre {logo_style}')
-                            line <= html.A(project['documentation'], href=project['documentation'], Class=style)
-                            line <= icons.fa('book', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-post {logo_style}')
+                            if project.get('documentation'):
+                                line <= icons.fa('book', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-pre {logo_style}')
+                                line <= html.A(project['documentation'], href=project['documentation'], Class=style)
+                                line <= icons.fa('book', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-post {logo_style}')
 
                         with html.DIV(Class=f'dunderlab-line {style}').context(col) as line:
-                            line <= icons.fa('github', mode='brands', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-pre {logo_style}')
-                            line <= html.A(project['repository'], href=project['repository'], Class=style)
-                            line <= icons.fa('github', mode='brands', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-post {logo_style}')
+                            if project.get('repository'):
+                                line <= icons.fa('github', mode='brands', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-pre {logo_style}')
+                                line <= html.A(project['repository'], href=project['repository'], Class=style)
+                                line <= icons.fa('github', mode='brands', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-post {logo_style}')
+
+                        with html.DIV(Class=f'dunderlab-line {style}').context(col) as line:
+                            if project.get('page'):
+                                line <= icons.fa('link', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-pre {logo_style}')
+                                line <= html.A(project['page'], href=project['page'], Class=style)
+                                line <= icons.fa('link', Class=f'dunderlab-dev--fa-icon dunderlab-dev--logo-post {logo_style}')
 
                         col <= html.DIV(', '.join(project['tools']), Class=f'dunderlab-dev--tools {style_tools}')
 
@@ -319,11 +327,11 @@ class StaticApp(RadiantAPI):
 
                     with html.DIV(Class='dunderlab-line').context as line:
                         line <= icons.fa('phone')
-                        line <= html.SPAN('(+57) 300 872 9952')
+                        line <= html.SPAN('(+57) 314 370 5156')
 
                     with html.DIV(Class='dunderlab-line').context as line:
                         line <= icons.fa('map-location-dot')
-                        line <= html.SPAN('Villamaría Caldas, Colombia')
+                        line <= html.SPAN('Eje Cafetero, Colombia')
 
         return container
 
@@ -343,7 +351,7 @@ class StaticApp(RadiantAPI):
                     col <= html.A('Radiant Framework', href='https://radiant-framework.readthedocs.io/')
                     col <= html.SPAN(' technology')
                     col <= html.BR()
-                    col <= html.SPAN('© 2023. Some rights reserved under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)')
+                    col <= html.SPAN('© 2025. Some rights reserved under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)')
 
         return container
 
@@ -351,7 +359,7 @@ class StaticApp(RadiantAPI):
 if __name__ == '__main__':
     RadiantServer('StaticApp',
                   host='0.0.0.0',
-                  port='5000',
+                  port='5050',
                   template='layout.html',
                   static_app='docs',
                   modules=['roboto', 'fontawesome'],

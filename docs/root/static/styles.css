@@ -17,6 +17,7 @@
 
     #dunderlab--container-home {
          background-image: url(/root/assets/background.png);
+         background-size: cover;
     }
 }
 

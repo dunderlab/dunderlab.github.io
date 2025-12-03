@@ -1,12 +1,11 @@
 projects = (
-
     {
         'name': 'BCI Framework',
         'type': 'Desktop application',
         'description': 'A distributed processing tool, stimuli delivery, psychophysiological experiments designer and real-time data visualizations for OpenBCI.',
         'tools': ['Python', 'PySide', 'OpenBCI', 'Kafka', 'GNU/Linux'],
         'documentation': 'https://bci-framework.readthedocs.io',
-        'repository': 'https://github.com/UN-GCPDS/bci-framework',
+        'repository': 'https://github.com/dunderlab/bci-framework',
         'logo': 'https://bci-framework.readthedocs.io/en/latest/_static/logo.svg',
         'year': '2021',
     },
@@ -17,7 +16,7 @@ projects = (
         'description': 'High level Python module for EEG/EMG/ECG acquisition and distributed streaming for OpenBCI Cyton board.',
         'tools': ['Python', 'OpenBCI', 'Kafka', 'GNU/Linux', 'Raspberry Pi'],
         'documentation': 'https://openbci-stream.readthedocs.io/',
-        'repository': 'https://github.com/UN-GCPDS/openbci-stream',
+        'repository': 'https://github.com/dunderlab/openbci-stream',
         'logo': 'https://openbci-stream.readthedocs.io/en/latest/_static/logo.svg',
         'year': '2019',
     },
@@ -28,7 +27,7 @@ projects = (
         'description': 'This is another stylesheet for PySide6, PySide2, PyQt5 and PyQt6, which looks like Material Design (close enough).',
         'tools': ['Python', 'OpenBCI', 'Kafka', 'GNU/Linux', 'Raspberry Pi'],
         'documentation': 'https://qt-material.readthedocs.io/',
-        'repository': 'https://github.com/UN-GCPDS/qt-material',
+        'repository': 'https://github.com/dunderlab/qt-material',
         'logo': 'https://qt-material.readthedocs.io/en/latest/_static/logo.png',
         'year': '2019',
     },
@@ -77,6 +76,64 @@ projects = (
         'year': '2023',
     },
 
+    # ============================
+    # NUEVOS PROYECTOS UNIFICADOS
+    # ============================
 
+    {
+        'name': 'CtenoLab',
+        'type': 'Web application',
+        'description': 'CtenoLab enables EEG and BCI paradigms directly in the browser with real-time hardware synchronization and WebUSB/WebSerial integration.',
+        'tools': ['Angular', 'WebUSB', 'WebSerial'],
+        'documentation': '',
+        'repository': '',
+        'logo': '/root/assets/images/cteno_logo.png',
+        'page': 'https://ctenolab.com',
+        'year': '2025',
+    },
+
+    {
+        'name': 'Chaski Confluent',
+        'type': 'Python module',
+        'description': 'Asynchronous messaging, node discovery and remote method invocation for distributed systems.',
+        'tools': ['Python'],
+        'documentation': 'https://chaski-confluent.readthedocs.io/en/latest/',
+        'repository': 'https://github.com/dunderlab/python-chaski',
+        'logo': 'https://chaski-confluent.readthedocs.io/en/latest/_static/logo.svg',
+        'year': '2024',
+    },
+
+    {
+        'name': 'Dunderlab - visualizations',
+        'type': 'Python module',
+        'description': 'Tools for brain connectivity visualization, topoplots and EEG processing (Matplotlib + MNE).',
+        'tools': ['Python', 'Matplotlib', 'NumPy', 'Flask'],
+        'documentation': 'https://dunderlab.readthedocs.io/projects/Visualizations/en/latest/',
+        'repository': 'https://github.com/dunderlab/python-dunderlab.visualizations',
+        'logo': 'https://dunderlab.readthedocs.io/projects/Visualizations/en/latest/_images/conn.png',
+        'year': '2019',
+    },
+
+    {
+        'name': 'Foundation',
+        'type': '',
+        'description': 'Utilities for managing Docker-based workers with a Radiant-based web interface.',
+        'tools': ['Python', 'Docker', 'Django', 'PostgreSQL'],
+        'documentation': '',
+        'repository': 'https://github.com/dunderlab/python-dunderlab.foundation',
+        'logo': 'https://dunderlab-foundation.readthedocs.io/en/latest/_static/logo.svg',
+        'year': '2019',
+    },
+
+    {
+        'name': 'Matplotlib-FigureStream',
+        'type': '',
+        'description': 'Backend for serving Matplotlib animations as real-time JPEG streams through Flask.',
+        'tools': ['Python', 'Matplotlib', 'NumPy', 'Flask'],
+        'documentation': 'https://figurestream.readthedocs.io/en/latest/',
+        'repository': 'https://github.com/dunderlab/python-matplotlib-figurestream',
+        'logo': 'https://figurestream.readthedocs.io/en/latest/_static/logo.svg',
+        'year': '2019',
+    },
 
 )
