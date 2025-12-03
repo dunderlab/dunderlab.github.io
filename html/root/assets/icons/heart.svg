@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 24 24"
+   width="512"
+   height="512"
+   version="1.1"
+   sodipodi:docname="heart-crack.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="0.66151887"
+     inkscape:cx="123.95716"
+     inkscape:cy="28.721781"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1">
+    <sodipodi:guide
+       position="11.49,16.21"
+       orientation="0,-1"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="12,18.7"
+       orientation="1,0"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="12,15.634755"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <path
+     d="M 12,23 C 11.17,23 10.35,22.72 9.66,22.17 6.07,19.28 0,13 0,7.82 0,4.06 2.8,1 6.25,1 8.79,1 11.04,2.8 12,5.3 12.96,2.8 15.21,1 17.75,1 21.2,1 24,4.06 24,7.81 24,14.06 15.96,20.86 14.34,22.16 13.65,22.72 12.82,22.99 12,22.99 Z M 6.25,2 C 3.4,2 1,4.67 1,7.82 c 0,4.81 5.83,10.8 9.28,13.58 1.01,0.82 2.42,0.82 3.44,0 C 18,17.95 23,12.32 23,7.82 23,4.67 20.6,2.01 17.75,2.01 14.938504,2.01 12.56989,4.5976403 12.506269,7.79 12.318007,8.4588747 11.681993,8.4588747 11.49,7.79 11.39,4.63 9.03,2 6.24,2 Z"
+     id="path1"
+     sodipodi:nodetypes="ccsscssccccsccsscccc"
+     style="fill:#4ecdc4;fill-opacity:1" />
+</svg>
