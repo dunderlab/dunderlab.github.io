@@ -8,9 +8,14 @@ from projects import projects
 
 class StaticApp(RadiantInterfaceApp):
 
-    def __init__(self, *args, **kwargs):
+    def on_mount(self):
         """"""
-        super().__init__(*args, **kwargs)
+
+        url = window.location.href
+        params = window.URLSearchParams.new(window.location.search)
+        params = {key: params.get(key) for key in params.keys()}
+        self.lang = params.get("lang", "es")
+
         self.add_css_file("static/normalize.css")
         self.add_css_file("static/styles.css")
         self.add_css_file("static/backgrounds.css")
@@ -45,7 +50,7 @@ class StaticApp(RadiantInterfaceApp):
         self.menubar = html.DIV(id="dunderlab--menubar")
         self.menubar <= html.DIV("", Class="dunderlab--home")
 
-        menu = [
+        ids = [
             "Home",
             "Competencies",
             "Mission & Vision",
@@ -54,16 +59,34 @@ class StaticApp(RadiantInterfaceApp):
             "Contact",
         ]
 
+        if self.lang == "en":
+            menu = ids
+        elif self.lang == "es":
+            menu = [
+                "Inicio",
+                "Competencias",
+                "Misión y Visión",
+                "Proyectos y Desarrollos",
+                "Clientes",
+                "Contacto",
+            ]
+
         with html.DIV(Class="dunderlab-toolbar-menu").context(self.menubar) as parent:
             with html.UL(Class="dunderlab-menu").context as menubar_parent:
-                for element in menu:
-                    element_id = element.lower().replace(" ", "_").replace("&", "and")
+                for id, element in zip(ids, menu):
+                    element_id = id.lower().replace(" ", "_").replace("&", "and")
                     li = html.LI(Class="dunderlab-menu--item", id=f"{element_id}--menu")
-                    if element == "Home":
+                    if element in ["Home", "Inicio"]:
                         li.classes.append("selected")
                     li <= html.A(f"{element}", href=f"#{element_id}")
                     li <= html.SPAN("", Class="dunderlab--cursor")
                     menubar_parent <= li
+
+        self.menubar <= html.A(
+            "en/es",
+            Class="dunderlab-float-menu--lang",
+            href="/?lang=es" if self.lang == "en" else "/?lang=en",
+        )
 
         self.menubar <= html.DIV(
             Class="dunderlab-float-menu--launcher",
@@ -177,7 +200,11 @@ class StaticApp(RadiantInterfaceApp):
             with html.DIV(Class="row").context as row:
                 with html.DIV(Class="col-12 col-lg-6 dunderlab-home").context as col:
                     col <= html.H2(
-                        "Fueling Innovation with Open Source: Advancing Technological Frontiers.",
+                        (
+                            "Fueling Innovation with Open Source: Advancing Technological Frontiers."
+                            if self.lang == "en"
+                            else "Impulsando la Innovación con Código Abierto: Avanzando Fronteras Tecnológicas."
+                        ),
                         Class="dunderlab-contrast_text",
                     )
                     col.style["padding-top"] = "30vh"
@@ -203,9 +230,17 @@ class StaticApp(RadiantInterfaceApp):
                             },
                             Class="dunderlab-capability--image",
                         )
-                        col <= html.H1("Open-Source Software Development")
+                        col <= html.H1(
+                            "Desarrollo de Software de Código Abierto"
+                            if self.lang == "es"
+                            else "Open-Source Software Development"
+                        )
                         col <= html.DIV(
-                            "Developing versatile and community-driven open-source software solutions.",
+                            (
+                                "Developing versatile and community-driven open-source software solutions."
+                                if self.lang == "en"
+                                else "Desarrollando soluciones de software de código abierto versátiles e impulsadas por la comunidad."
+                            ),
                             Class="dunderlab-capability--description",
                         )
 
@@ -217,9 +252,17 @@ class StaticApp(RadiantInterfaceApp):
                             },
                             Class="dunderlab-capability--image",
                         )
-                        col <= html.H1("Innovative Prototyping Design")
+                        col <= html.H1(
+                            "Diseño de Prototipos Innovadores"
+                            if self.lang == "es"
+                            else "Innovative Prototyping Design"
+                        )
                         col <= html.DIV(
-                            "Crafting functional prototypes with a focus on IoT and smart technologies.",
+                            (
+                                "Crafting functional prototypes with a focus on IoT and smart technologies."
+                                if self.lang == "en"
+                                else "Creación de prototipos funcionales enfocados en IoT y tecnologías inteligentes."
+                            ),
                             Class="dunderlab-capability--description",
                         )
 
@@ -231,9 +274,17 @@ class StaticApp(RadiantInterfaceApp):
                             },
                             Class="dunderlab-capability--image",
                         )
-                        col <= html.H1("Embedded Systems and IoT Development")
+                        col <= html.H1(
+                            "Desarrollo de Sistemas Embebidos e IoT"
+                            if self.lang == "es"
+                            else "Embedded Systems and IoT Development"
+                        )
                         col <= html.DIV(
-                            "Creating intelligent, interconnected systems for a wide range of applications.",
+                            (
+                                "Creating intelligent, interconnected systems for a wide range of applications."
+                                if self.lang == "en"
+                                else "Creación de sistemas inteligentes e interconectados para una amplia gama de aplicaciones."
+                            ),
                             Class="dunderlab-capability--description",
                         )
 
@@ -248,13 +299,18 @@ class StaticApp(RadiantInterfaceApp):
                             Class="dunderlab-capability--image",
                         )
                         col <= html.H1(
-                            "Library Development for Specialized Applications"
+                            "Desarrollo de Bibliotecas para Aplicaciones Especializadas"
+                            if self.lang == "es"
+                            else "Library Development for Specialized Applications"
                         )
                         col <= html.DIV(
-                            "Building efficient, custom software libraries for specific tech needs.",
+                            (
+                                "Building efficient, custom software libraries for specific tech needs."
+                                if self.lang == "en"
+                                else "Construcción de bibliotecas de software eficientes y personalizadas para necesidades técnicas específicas."
+                            ),
                             Class="dunderlab-capability--description",
                         )
-
                 with html.DIV(Class=cards_style).context:
                     with html.DIV(Class="dunderlab-capability").context as col:
                         col <= html.DIV(
@@ -263,9 +319,17 @@ class StaticApp(RadiantInterfaceApp):
                             },
                             Class="dunderlab-capability--image",
                         )
-                        col <= html.H1("Cloud Computing and Infrastructure")
+                        col <= html.H1(
+                            "Computación en la Nube e Infraestructura"
+                            if self.lang == "es"
+                            else "Cloud Computing and Infrastructure"
+                        )
                         col <= html.DIV(
-                            "Providing scalable and secure cloud-based solutions, optimizing data storage, processing, and accessibility for diverse applications.",
+                            (
+                                "Providing scalable and secure cloud-based solutions, optimizing data storage, processing, and accessibility for diverse applications."
+                                if self.lang == "en"
+                                else "Proporcionando soluciones escalables y seguras basadas en la nube, optimizando el almacenamiento, procesamiento y accesibilidad de datos para diversas aplicaciones."
+                            ),
                             Class="dunderlab-capability--description",
                         )
 
@@ -277,9 +341,17 @@ class StaticApp(RadiantInterfaceApp):
                             },
                             Class="dunderlab-capability--image",
                         )
-                        col <= html.H1("Advanced Digital Signal Processing Solutions")
+                        col <= html.H1(
+                            "Soluciones Avanzadas de Procesamiento de Señales Digitales"
+                            if self.lang == "es"
+                            else "Advanced Digital Signal Processing Solutions"
+                        )
                         col <= html.DIV(
-                            "Delivering high-performance signal processing in telecommunications and beyond.",
+                            (
+                                "Entregando procesamiento de señales de alto rendimiento en telecomunicaciones y más allá."
+                                if self.lang == "es"
+                                else "Delivering high-performance signal processing in telecommunications and beyond."
+                            ),
                             Class="dunderlab-capability--description",
                         )
 
@@ -294,22 +366,28 @@ class StaticApp(RadiantInterfaceApp):
             with html.DIV(Class="row").context as row:
 
                 with html.DIV(Class="col-12 dunderlab-mav").context as col:
-                    col <= html.H1("Mission")
+                    col <= html.H1("Misión" if self.lang == "es" else "Mission")
                     col <= html.DIV(
-                        "DunderLab is committed to innovating in the realms of software and hardware development, upholding the principles of free and open-source software and hardware. Our focus is on crafting high-quality, accessible, and customizable technological solutions tailored to meet the specific needs of our clients. We strive to propel technological advancement through the creation of unique hardware and prototypes, always maintaining an unwavering commitment to freedom, innovation, and technological sustainability."
+                        "DunderLab está comprometido con la innovación en los campos del desarrollo de software y hardware, defendiendo los principios del software y hardware libre y de código abierto. Nos enfocamos en crear soluciones tecnológicas de alta calidad, accesibles y personalizables, adaptadas para satisfacer las necesidades específicas de nuestros clientes. Nos esforzamos por impulsar el avance tecnológico mediante la creación de hardware y prototipos únicos, manteniendo siempre un compromiso inquebrantable con la libertad, la innovación y la sostenibilidad tecnológica."
+                        if self.lang == "es"
+                        else "DunderLab is committed to innovating in the realms of software and hardware development, upholding the principles of free and open-source software and hardware. Our focus is on crafting high-quality, accessible, and customizable technological solutions tailored to meet the specific needs of our clients. We strive to propel technological advancement through the creation of unique hardware and prototypes, always maintaining an unwavering commitment to freedom, innovation, and technological sustainability."
                     )
 
                 row <= html.HR(style={"margin-top": "10vh", "width": "50vw"})
 
                 with html.DIV(Class="col-12 dunderlab-mav").context as col:
                     col <= html.H1(
-                        "Vision",
+                        "Visión" if self.lang == "es" else "Vision",
                         style={
                             "text-align": "right",
                         },
                     )
                     col <= html.DIV(
-                        "Our vision at DunderLab is to be globally recognized leaders in the development of free and open-source software and hardware. We aspire to transform and enrich the technology industry through innovative solution design and the promotion of open-source culture. We envision ourselves as a company that makes a difference in the tech field, inspiring other organizations to adopt more open, collaborative, and ethical practices in technology development.",
+                        (
+                            "Nuestra visión en DunderLab es ser líderes globalmente reconocidos en el desarrollo de software y hardware libre y de código abierto. Aspiramos a transformar y enriquecer la industria tecnológica a través del diseño de soluciones innovadoras y la promoción de la cultura del código abierto. Nos visualizamos como una empresa que marca la diferencia en el campo tecnológico, inspirando a otras organizaciones a adoptar prácticas más abiertas, colaborativas y éticas en el desarrollo tecnológico."
+                            if self.lang == "es"
+                            else "Our vision at DunderLab is to be globally recognized leaders in the development of free and open-source software and hardware. We aspire to transform and enrich the technology industry through innovative solution design and the promotion of open-source culture. We envision ourselves as a company that makes a difference in the tech field, inspiring other organizations to adopt more open, collaborative, and ethical practices in technology development."
+                        ),
                         style={
                             "text-align": "right",
                         },
@@ -324,7 +402,12 @@ class StaticApp(RadiantInterfaceApp):
             id="dunderlab--container-projects_and_developments",
         ).context as container:
             container <= html.H1(
-                "Projects & Developments", Class="dunderlab--container-title"
+                (
+                    "Proyectos y Desarrollos"
+                    if self.lang == "es"
+                    else "Projects & Developments"
+                ),
+                Class="dunderlab--container-title",
             )
             with html.DIV(Class="row").context as row:
 
@@ -358,7 +441,10 @@ class StaticApp(RadiantInterfaceApp):
 
                             with html.DIV(Class=f"col").context as col_head:
                                 col_head <= html.H1(project["name"], Class=style)
-                                col_head <= html.H2(project["type"], Class=style)
+                                if self.lang == "es":
+                                    col_head <= html.H2(project["type_es"], Class=style)
+                                else:
+                                    col_head <= html.H2(project["type"], Class=style)
 
                             with html.DIV(
                                 Class=f"dunderlab-dev--logo dunderlab-dev--logo-post {logo_style} col-auto"
@@ -366,8 +452,10 @@ class StaticApp(RadiantInterfaceApp):
                                 col_logo.style["background-image"] = (
                                     f"url({project['logo']})"
                                 )
-
-                        col <= html.DIV(project["description"], Class=style)
+                        if self.lang == "es":
+                            col <= html.DIV(project["description_es"], Class=style)
+                        else:
+                            col <= html.DIV(project["description"], Class=style)
 
                         with html.DIV(Class=f"dunderlab-line {style}").context(
                             col
@@ -441,7 +529,12 @@ class StaticApp(RadiantInterfaceApp):
             Class="dunderlab--container container", id="dunderlab--container-clients"
         ).context as container:
             container <= html.H1(
-                "University Partnerships and Supply", Class="dunderlab--container-title"
+                (
+                    "University Partnerships and Supply"
+                    if self.lang == "en"
+                    else "Alianzas y Suministros Universitarios"
+                ),
+                Class="dunderlab--container-title",
             )
             with html.DIV(Class="row", style={"margin-top": "100px"}).context as row:
 
@@ -467,7 +560,10 @@ class StaticApp(RadiantInterfaceApp):
         with html.DIV(
             Class="dunderlab--container container", id="dunderlab--container-contact"
         ).context as container:
-            container <= html.H1("Contact", Class="dunderlab--container-title")
+            container <= html.H1(
+                "Contact" if self.lang == "en" else "Contacto",
+                Class="dunderlab--container-title",
+            )
             with html.DIV(Class="row").context as row:
                 with html.DIV(Class="col").context as col:
 
@@ -498,8 +594,9 @@ class StaticApp(RadiantInterfaceApp):
                         "text-align": "center",
                     },
                 ).context as col:
-
-                    col <= html.SPAN("Made with ")
+                    col <= html.SPAN(
+                        "Hecho con " if self.lang == "es" else "Made with "
+                    )
                     col <= icons.fa(
                         "heart",
                         mode="regular",
@@ -507,17 +604,29 @@ class StaticApp(RadiantInterfaceApp):
                             "color": "var(--link-color)",
                         },
                     )
-                    col <= html.SPAN(" by DunderLab (obviously)")
+                    col <= html.SPAN(
+                        " por DunderLab (obviamente)"
+                        if self.lang == "es"
+                        else " by DunderLab (obviously)"
+                    )
                     col <= html.BR()
-                    col <= html.SPAN("This site has been built using ")
+                    col <= html.SPAN(
+                        "Este sitio ha sido construido usando "
+                        if self.lang == "es"
+                        else "This site has been built using "
+                    )
                     col <= html.A(
                         "Radiant Framework",
                         href="https://radiant-framework.readthedocs.io/",
                     )
-                    col <= html.SPAN(" technology")
+                    # col <= html.SPAN(
+                    #     " tecnología" if self.lang == "es" else " technology"
+                    # )
                     col <= html.BR()
                     col <= html.SPAN(
-                        "© 2025. Some rights reserved under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)"
+                        "© 2025. Algunos derechos reservados bajo la Licencia Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)"
+                        if self.lang == "es"
+                        else "© 2025. Some rights reserved under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)"
                     )
 
         return container
@@ -528,7 +637,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port="5050",
         template="layout.html",
-        static_app="html",
+        static_app="docs",
         modules=["roboto", "fontawesome"],
         page_title="__lab__",
         page_description="Fueling Innovation with Open Source: Advancing Technological Frontiers.",
@@ -538,4 +647,5 @@ if __name__ == "__main__":
         page_site="@yeisondev",
         page_author="Yeison Cardona",
         page_copyright="",
+        page_favicon="/root/assets/favicon.ico",
     ).serve()

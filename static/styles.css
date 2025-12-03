@@ -130,7 +130,12 @@ ul.dunderlab-menu > li {
     }
 
 .dunderlab-toolbar-menu {
+}
 
+.dunderlab-float-menu--lang {
+    padding: 20px 15px;
+    margin-left: auto;
+    margin-right: 30px;
 }
 
 .dunderlab-float-menu--launcher {
@@ -139,7 +144,7 @@ ul.dunderlab-menu > li {
     background-repeat: no-repeat;
     background-size: 30%;
     cursor: pointer;
-    margin-left: auto;
+    /*margin-left: auto;*/
 }
 
 .dunderlab-float-menu {

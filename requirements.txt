@@ -1,1 +1,1 @@
-radiant-framework==0.3
+radiant-framework==0.3.1
