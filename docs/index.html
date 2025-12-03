@@ -1,3 +1,8 @@
+<!--
+Radiant Framework – Main HTML Template
+This file serves as the base HTML layout for applications built with the Radiant framework.
+It dynamically injects metadata, loads Brython runtime, applies styling, and mounts the client application.
+-->
 
 <!DOCTYPE html>
 <html>
@@ -5,6 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>__lab__</title>
+<link rel="icon" type="image/x-icon" href="">
 <meta name="description" content="Fueling Innovation with Open Source: Advancing Technological Frontiers.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="__lab__">
@@ -19,50 +25,35 @@
 <link rel="canonical" href="dunderlab.com">
 <meta name="author" content="Yeison Cardona">
 <meta name="copyright" content="">
+
 <!--Brython-->
-<script type="text/javascript" src="/static/brython/brython-3.12.1/brython.js"></script>
-<script type="text/javascript" src="/static/brython/brython-3.12.1/brython_stdlib.js"></script>
+<script type="text/javascript" src="/static/brython/Brython-latest/brython.js"></script>
+<script type="text/javascript" src="/static/brython/Brython-latest/brython_stdlib.js"></script>
 <brython-options debug="0" cache="true"></brython-options>
 <!--Default CSS-->
 <link rel="stylesheet" type="text/css" href="/static/styles/normalize.css">
 <link rel="stylesheet" type="text/css" href="/static/styles/default.css">
 <link rel="stylesheet" type="text/css" href="/static/styles/bootstrap-grid.css">
-
-
-
-
-
-
-
 <!--Fonts-->
 <link type="text/css" rel="stylesheet" href="/static/fonts/roboto-android/roboto.css">
 <link type="text/css" rel="stylesheet" href="/static/fonts/roboto-android/roboto-mono.css">
-
-
-<!--Fonts-->
-<link type="text/css" rel="stylesheet" href="/static/fonts/fontawesome/css/all.min.css">
-
 <style>
 .RADIANT-HIDE {
 display: none !important;
 }
 </style>
-
 <script type="text/python">
 import sys
-from radiant.framework.utils import autoinit
 from main import StaticApp
 
 
 module = StaticApp(None, ())
 
 argvs = ["/Users/yeison/Development/dunderlab.github.io/main.py"]
-autoinit()
 </script>
 </head>
 <body onload="brython({pythonpath: ['/root/', '/static/modules/brython']})">
 
 </body>
-<div id="radiant-placeholder--templates" style="display: none;">
-</div>
+<div id="radiant-placeholder--templates" style="display: none;"></div>
 </html>

@@ -3,7 +3,32 @@ from browser import document as document_
 
 
 ########################################################################
-class class_(list):
+class style_context:
+    """"""
+    # ----------------------------------------------------------------------
+
+    def __init__(self, element):
+        """"""
+        self.style = element.style
+
+    # # ----------------------------------------------------------------------
+    def __getattr__(self, attr):
+        """"""
+        attr = attr.replace('_', '-')
+        return getattr(self.style, attr)
+
+    # ----------------------------------------------------------------------
+    def __setattr__(self, attr, value):
+        """"""
+        if attr in ['style']:
+            return super().__setattr__(attr, value)
+
+        attr = attr.replace('_', '-')
+        return setattr(self.style, attr, value)
+
+
+########################################################################
+class class_context(list):
     """"""
 
     # ----------------------------------------------------------------------
@@ -64,8 +89,14 @@ class select(list):
         if attr == 'style':
             return self.style_()
 
+        if attr == 'styles':
+            return self.styles_()
+
         if attr == 'classes':
             return self.classes_()
+
+        if attr == 'bind':
+            return self.bind_()
 
         def inset(*args, **kwargs):
             return [getattr(element, attr)(*args, **kwargs) for element in self]
@@ -89,28 +120,48 @@ class select(list):
         return Style()
 
     # ----------------------------------------------------------------------
-
     def classes_(self):
         """"""
-
         class Classes_:
             def __getattr__(cls, attr):
                 """"""
-
                 def inset(*args, **kwargs):
-
-                    [setattr(element, 'classes', class_(element, element.class_name)) for element in self]
-
+                    [setattr(element, 'classes', class_context(
+                        element, element.class_name)) for element in self]
                     return [getattr(element.classes, attr)(*args, **kwargs) for element in self]
-
                 return inset
-
         return Classes_()
 
-        # html_e.classes = class_(html_e, kwargs.get('Class', ''))
+    # ----------------------------------------------------------------------
+    def styles_(self):
+        """"""
+        class Styles_:
+            def __getattr__(cls, attr):
+                """"""
+                [setattr(element, 'styles', style_context(element))
+                 for element in self]
+                return [getattr(element.styles, attr) for element in self]
+
+            def __setattr__(cls, attr, value):
+                """"""
+                [setattr(element, 'styles', style_context(element))
+                 for element in self]
+                [setattr(element.styles, attr, value) for element in self]
+
+        return Styles_()
 
     # ----------------------------------------------------------------------
+    def bind_(self):
+        """"""
+        class Bind_:
+            def __call__(cls, event, fn):
+                """"""
+                return [element.bind(event, fn) for element in self]
 
+        return Bind_()
+
+
+    # ----------------------------------------------------------------------
     def __le__(self, other):
         """"""
         for element in self:
@@ -129,8 +180,12 @@ class html_context:
 
     # ----------------------------------------------------------------------
     def __enter__(self):
+        if hasattr(self._element, 'child_'):
+            self._element = self._element.child_
+
         if self._parent:
             self._parent <= self._element
+
         html_context._context.append(self._element)
         return self._element
 
@@ -157,17 +212,47 @@ class html_context:
 
 
 ########################################################################
-class HTML:
+class Element:
     """"""
 
+    # ----------------------------------------------------------------------
+    def __init__(self, element=None):
+        """"""
+        self._element = element
+
+    # ----------------------------------------------------------------------
     def __getattribute__(self, attr):
         """"""
+        if attr.startswith('_'):
+            return super().__getattribute__(attr)
+
         def inset(*args, **kwargs):
-            html_e = getattr(html_, attr)(*args, **kwargs)
-            html_e.classes = class_(html_e, kwargs.get('Class', ''))
+            kwargs_ = {k.removesuffix("_").replace(
+                "_", "-"): kwargs[k] for k in kwargs}
+
+            if self._element:
+                html_e = self._element
+            else:
+                html_e = getattr(html_, attr)(*args, **kwargs_)
+
+            html_e.classes = class_context(html_e, kwargs_.get('Class', ''))
             html_e.context = html_context(html_e)
+            try:
+                html_e.styles = style_context(html_e)
+            except:
+                html_e.styles = None
+
             return html_e
+
         return inset
 
+    # ----------------------------------------------------------------------
+    def __call__(self, element):
+        """"""
+        cont = html.DIV(element)
+        cont.child_ = element
+        return cont
 
-html = HTML()
+
+
+html = Element()

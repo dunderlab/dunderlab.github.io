@@ -1,5 +1,10 @@
-from radiant.framework.server import RadiantAPI, RadiantServer, render
+# from radiant.framework.server import RadiantAPI, RadiantServer, render
+# from radiant.framework import html, icons, select
+
+from radiant.framework.server import RadiantInterfaceApp
 from radiant.framework import html, icons, select
+
+
 from browser import window, bind, document
 from browser.template import Template
 
@@ -7,7 +12,7 @@ from projects import projects
 
 
 ########################################################################
-class StaticApp(RadiantAPI):
+class StaticApp(RadiantInterfaceApp):
 
     # ----------------------------------------------------------------------
     def __init__(self, *args, **kwargs):
@@ -357,7 +362,7 @@ class StaticApp(RadiantAPI):
 
 
 if __name__ == '__main__':
-    RadiantServer('StaticApp',
+    StaticApp(#'StaticApp',
                   host='0.0.0.0',
                   port='5050',
                   template='layout.html',
@@ -371,4 +376,4 @@ if __name__ == '__main__':
                   page_site='@yeisondev',
                   page_author='Yeison Cardona',
                   page_copyright='',
-                  )
+                  ).serve()

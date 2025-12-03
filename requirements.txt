@@ -1,2 +1,1 @@
-jinja2
-tornado
+radiant-framework==0.3
