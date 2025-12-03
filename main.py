@@ -528,7 +528,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port="5050",
         template="layout.html",
-        static_app="docs",
+        static_app="html",
         modules=["roboto", "fontawesome"],
         page_title="__lab__",
         page_description="Fueling Innovation with Open Source: Advancing Technological Frontiers.",
