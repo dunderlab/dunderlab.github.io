@@ -59,7 +59,7 @@ jobs:
         run: npm run build -- --configuration production --base-href "/"
 
       - name: Create CNAME file
-        run: mkdir -p ./docs/browser && echo "www.dunderlab.com" > ./docs/browser/CNAME && mv ./docs/browser/* ./docs/
+        run: mkdir -p ./docs/browser && echo "www.dunderlab.com" > ./docs/browser/CNAME && mkdir -p /tmp/docs/ && mv ./docs/browser/* /tmp/docs/
 
       - name: Deploy to static
         run: |
@@ -71,9 +71,7 @@ jobs:
           git checkout --orphan static
           git rm -rf .
           
-          cp -r docs/* .
-          
-          touch .nojekyll
+          cp -r /tmp/docs/* .
           
           git add .
           git commit -m "Deploy ${{ github.sha }}"
