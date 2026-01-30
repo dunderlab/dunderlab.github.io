@@ -1,0 +1,3 @@
+[submodule "app/src/app/shared"]
+	path = app/src/app/shared
+	url = git@github-ngbase:dunderlab/Angular-Base.git

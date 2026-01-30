@@ -1,0 +1,60 @@
+@use '@angular/material' as mat;
+
+:host {
+  @include mat.chips-overrides((
+    container-height: 1.5rem,
+  ));
+}
+
+.container-mission {
+  padding-top: 20vh;
+}
+
+
+mat-card {
+  box-shadow: var(--mat-sys-level2);
+  padding: 2rem;
+  margin: 1rem 2rem;
+}
+
+.mat-mdc-card-header {
+  align-items: flex-end;
+}
+
+.project-icon {
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+}
+
+.devicon {
+  font-size: 120%;
+}
+
+mat-icon {
+  font-size: 1.4rem !important;
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+}
+
+
+
+.grid-projects > div {
+  border-right: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-color: var(--mat-sys-primary);
+
+  //border-color:
+  //color-mix(in srgb, var(--mat-sys-primary) 50%, transparent);;
+
+}
+
+.grid-projects > div:nth-child(2n) {
+  border-right: none;
+  margin-left: -1px;
+}
+
+.grid-projects > div:nth-child(2n+1) {
+   border-left: none;
+   margin-right: -1px;
+ }

@@ -1,0 +1,42 @@
+
+mat-toolbar {
+  border: 0  solid var(--mat-sys-outline);
+  border-width: 1px 0;
+  overflow: visible !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar .logo-icon {
+  width: 100px !important;
+  height: 100px !important;
+  margin-top: 3rem;
+  z-index: 99;
+  //height: 150%;
+  //background-color: var(--sidenav-background-color) !important;
+}
+
+.toolbar::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 1px;
+  top: 70px;
+  left: 52px;
+  background-color: var(--sidenav-background-color);
+  //background-color: red;
+  z-index: 1;
+}
+
+span.material-symbols-sharp {
+  font-size: 1.2rem;
+  position: relative;
+  top: 0.2rem;
+  color: var(--mat-sys-primary);
+}
+
+.navbar-title {
+  top: 0.75rem !important;
+}
+

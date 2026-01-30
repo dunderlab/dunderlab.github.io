@@ -1,0 +1,38 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+//    "src/app/shared/components/breadcrumb",
+//    "src/app/shared/components/dialogs",
+//    "src/app/shared/components/footer",
+//    "src/app/shared/components/logo",
+//    "src/app/shared/components/material",
+//    "src/app/shared/components/navbar",
+//    "src/app/shared/components/sidenav",
+//    "src/app/shared/components/toolbar",
+    "src/app/shared/components/visualizations",
+//    "src/app/shared/components/widgets",
+    "src/app/shared/layouts/app-sidenav-auto",
+    "src/app/shared/layouts/app-sidenav-collapse",
+//    "src/app/shared/layouts/empty",
+//    "src/app/shared/layouts/fullscreen",
+//    "src/app/shared/providers/plotly.provider.ts",
+//    "src/app/shared/services/api",
+//    "src/app/shared/services/filter",
+    "src/app/shared/services/hardware",
+//    "src/app/shared/services/memoize",
+//    "src/app/shared/services/plotly",
+    "src/app/shared/services/supabase",
+//    "src/app/shared/services/theme",
+    "src/app/shared/services/viewport",
+  ]
+}

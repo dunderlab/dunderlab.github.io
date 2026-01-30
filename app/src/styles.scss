@@ -1,0 +1,86 @@
+@use '@angular/material' as mat;
+@use "app/shared/components/material/material.component";
+@use "app/shared/components/material/responsive-grid";
+@use "app/shared/components/material/responsive-fontsizes";
+@use "app/shared/components/material/responsive-container";
+@import "devicon/devicon.min.css";
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu/Ubuntu-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+
+html {
+  //color-scheme: light dark;
+  @include mat.theme((
+    color: mat.$cyan-palette,
+    //color: (
+    //  primary: mat.$blue-palette,
+    //  tertiary: mat.$green-palette,
+    //  theme-type: dark,
+    //),
+    typography: (
+      plain-family: 'Roboto',
+      brand-family: 'Roboto',
+      bold-weight: 300,
+      medium-weight: 300,
+      regular-weight: 300,
+    ),
+    density: (
+      scale: 0,
+    ),
+    use-system-variables: true,
+  ));
+}
+
+
+
+
+:root {
+  --sidenav-width: 290px;
+  --sidenav-width-fixed: 290px;
+
+  --sidenav-collapsed-width: 73px;
+  --sidenav-collapsed-width-fixed: 73px;
+
+  --toolbar-height: calc(40px + 2rem);
+  //--breadcrumb-height: calc(40px + 0.8rem + 1px);
+
+  --sidenav-background-color: var(--mat-sys-surface-bright);
+  --main-container-background-color: var(--mat-sys-surface-container-lowest);
+
+  --scrollbar-width: 0.75rem;
+}
+
+
+.mat-drawer-content {
+  overflow-x: hidden !important;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+mat-icon.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+

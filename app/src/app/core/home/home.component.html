@@ -1,0 +1,15 @@
+<app-container id="home">
+  <div class="home-container"
+    [style.backgroundImage]="'url(/assets/images/backgrounds/background-' + themeService.mode() + '.png)'"
+    [style.backgroundPositionY]="backgroundPositionY()"
+    >
+    <div class="home-tagline">
+
+      <h1 class="padding-large">
+        {{tagline()}}
+      </h1>
+
+    </div>
+
+  </div>
+</app-container>
