@@ -19,7 +19,12 @@ export class HomeComponent {
 
   tagline = computed(() => {
     const taglines = [
-      "Impulsando la Innovación con Código Abierto: Avanzando Fronteras Tecnológicas."
+      "Diseñamos tecnología que resuelve problemas reales.",
+      "Ingeniería de software y hardware sin atajos.",
+      "Convertimos complejidad en soluciones simples.",
+      "Arquitectura sólida. Resultados medibles.",
+      "Menos promesas. Más sistemas funcionando.",
+      "Tecnología confiable, desde el diseño hasta producción."
     ];
     return taglines[Math.floor(Math.random() * taglines.length)];
   });

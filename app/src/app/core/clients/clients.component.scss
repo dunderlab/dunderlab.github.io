@@ -1,13 +1,21 @@
 .container-clients {
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
 
-.alliance {
+.clients-icons {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 200px;
-  width: 200px;
+  height: 15vw;
+  width: 15vw;
+}
+
+.mentors-icons {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 10vw;
+  width: 25vw;
 }
 
 p {
@@ -17,4 +25,8 @@ p {
 
 .invert {
   filter: invert(1);
+}
+
+.mentors {
+  margin-top: 10vh;
 }

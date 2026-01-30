@@ -19,44 +19,71 @@ export class ProjectsComponent {
 
   projects = [
     {
-      "name": "BCI Framework",
-      "type": {"en": "Desktop application", "es": "Aplicación de escritorio"},
-      "description": {
-        "en": "A distributed processing tool, stimuli delivery, psychophysiological experiments designer and real-time data visualizations for OpenBCI.",
-        "es": "Una herramienta de procesamiento distribuido, entrega de estímulos, diseño de experimentos psicofisiológicos y visualización de datos en tiempo real para OpenBCI."
+      "name": "REMuC-A",
+      "type": {
+        "en": "Climate resilience decision-support platform",
+        "es": "Plataforma de soporte a decisiones para resiliencia climática"
       },
-      "tools": ["Python", "PySide", "OpenBCI", "Kafka", "GNU/Linux"],
-      "documentation": "https://bci-framework.readthedocs.io",
-      "repository": "https://github.com/dunderlab/bci-framework",
-      "logo": "https://bci-framework.readthedocs.io/en/latest/_static/logo.svg",
-      "year": "2021",
+      "description": {
+        "en": "Climate resilience platform that integrates climate data and parametric risk logic to support decision-making and trigger adaptive or financial responses to climate shocks.",
+        "es": "Plataforma de resiliencia climática que integra datos climáticos y lógica paramétrica de riesgo para apoyar la toma de decisiones y activar respuestas adaptativas o financieras ante choques climáticos."
+      },
+      "tools": [
+        "Angular",
+        "Django",
+        "Django Rest Framework",
+        "PostgreSQL",
+        "ESP32",
+      ],
+      // "documentation": "https://docs.dunderlab.com/remuc-a",
+      // "repository": "https://github.com/dunderlab/remuc-a",
+      "logo": "/assets/images/remuca.svg",
+      "ondev": true,
+      "year": "2026"
     },
     {
-      "name": "OpenBCI Stream",
-      "type": {"en": "Hardware drivers", "es": "Controladores de hardware"},
+      "name": "Red de Monitoreo de Espectro Electromagnético",
+      "type": {"en": "Web application", "es": "Aplicación web"},
       "description": {
-        "en": "High level Python module for EEG/EMG/ECG acquisition and distributed streaming for OpenBCI Cyton board.",
-        "es": "Módulo Python de alto nivel para adquisición de EEG/EMG/ECG y transmisión distribuida para la tarjeta OpenBCI Cyton."
+        "en": "Distributed web platform for real-time electromagnetic spectrum monitoring and analysis, integrating remote sensors, signal processing, and dashboards to detect interference and support operational decisions.",
+        "es": "Plataforma web distribuida para monitoreo y análisis en tiempo real del espectro electromagnético, integrando sensores remotos, procesamiento de señales y paneles para detectar interferencias y apoyar decisiones operativas."
       },
-      "tools": ["Python", "OpenBCI", "Kafka", "GNU/Linux", "Raspberry Pi"],
-      "documentation": "https://openbci-stream.readthedocs.io/",
-      "repository": "https://github.com/dunderlab/openbci-stream",
-      "logo": "https://openbci-stream.readthedocs.io/en/latest/_static/logo.svg",
-      "year": "2019",
+      "tools": ["Angular", "Django", "Django Rest Framework", "PostgreSQL",],
+      "documentation": "",
+      "repository": "",
+      "logo": "/assets/images/clients/logoAne.png",
+      "year": "2025",
     },
     {
-      "name": "Qt Material",
-      "type": {"en": "GUI theme", "es": "Tema gráfico"},
+      "name": "CtenoLab",
+      "type": {"en": "Web application", "es": "Aplicación web"},
       "description": {
-        "en": "This is another stylesheet for PySide6, PySide2, PyQt5 and PyQt6, which looks like Material Design (close enough).",
-        "es": "Otro conjunto de estilos para PySide6, PySide2, PyQt5 y PyQt6, con aspecto similar a Material Design."
+        "en": "Runs EEG and BCI paradigms directly in the browser with real-time synchronization using WebUSB/WebSerial.",
+        "es": "Ejecuta paradigmas EEG y BCI directamente en el navegador con sincronización en tiempo real usando WebUSB/WebSerial."
       },
-      "tools": ["Python", "OpenBCI", "Kafka", "GNU/Linux", "Raspberry Pi"],
-      "documentation": "https://qt-material.readthedocs.io/",
-      "repository": "https://github.com/dunderlab/qt-material",
-      "logo": "https://qt-material.readthedocs.io/en/latest/_static/logo.png",
-      "year": "2019",
+      "tools": ["Angular", "WebUSB", "WebSerial"],
+      "documentation": "",
+      "repository": "",
+      "logo": "https://cteno.dunderlab.com/assets/images/branding/app_logo_light.svg",
+      "page": "https://ctenolab.com",
+      "ondev": true,
+      "year": "2025",
     },
+    {
+      "name": "Chaski Confluent",
+      "type": {"en": "Python module", "es": "Módulo de Python"},
+      "description": {
+        "en": "Asynchronous messaging, node discovery and remote method invocation for distributed systems.",
+        "es": "Mensajería asíncrona, descubrimiento de nodos e invocación remota de métodos para sistemas distribuidos."
+      },
+      "tools": ["Python"],
+      "documentation": "https://chaski-confluent.readthedocs.io/en/latest/",
+      "repository": "https://github.com/dunderlab/python-chaski",
+      "logo": "https://chaski-confluent.readthedocs.io/en/latest/_static/logo.svg",
+      "ondev": true,
+      "year": "2024",
+    },
+
     {
       "name": "Radiant Framework",
       "type": {"en": "Web apps development framework", "es": "Framework para desarrollo de aplicaciones web"},
@@ -110,31 +137,43 @@ export class ProjectsComponent {
       "year": "2023",
     },
     {
-      "name": "CtenoLab",
-      "type": {"en": "Web application", "es": "Aplicación web"},
+      "name": "BCI Framework",
+      "type": {"en": "Desktop application", "es": "Aplicación de escritorio"},
       "description": {
-        "en": "Runs EEG and BCI paradigms directly in the browser with real-time synchronization using WebUSB/WebSerial.",
-        "es": "Ejecuta paradigmas EEG y BCI directamente en el navegador con sincronización en tiempo real usando WebUSB/WebSerial."
+        "en": "A distributed processing tool, stimuli delivery, psychophysiological experiments designer and real-time data visualizations for OpenBCI.",
+        "es": "Una herramienta de procesamiento distribuido, entrega de estímulos, diseño de experimentos psicofisiológicos y visualización de datos en tiempo real para OpenBCI."
       },
-      "tools": ["Angular", "WebUSB", "WebSerial"],
-      "documentation": "",
-      "repository": "",
-      "logo": "https://cteno.dunderlab.com/assets/images/branding/app_logo_light.svg",
-      "page": "https://ctenolab.com",
-      "year": "2025",
+      "tools": ["Python", "PySide", "OpenBCI", "Kafka", "GNU/Linux"],
+      "documentation": "https://bci-framework.readthedocs.io",
+      "repository": "https://github.com/dunderlab/bci-framework",
+      "logo": "https://bci-framework.readthedocs.io/en/latest/_static/logo.svg",
+      "year": "2021",
     },
     {
-      "name": "Chaski Confluent",
-      "type": {"en": "Python module", "es": "Módulo de Python"},
+      "name": "OpenBCI Stream",
+      "type": {"en": "Hardware drivers", "es": "Controladores de hardware"},
       "description": {
-        "en": "Asynchronous messaging, node discovery and remote method invocation for distributed systems.",
-        "es": "Mensajería asíncrona, descubrimiento de nodos e invocación remota de métodos para sistemas distribuidos."
+        "en": "High level Python module for EEG/EMG/ECG acquisition and distributed streaming for OpenBCI Cyton board.",
+        "es": "Módulo Python de alto nivel para adquisición de EEG/EMG/ECG y transmisión distribuida para la tarjeta OpenBCI Cyton."
       },
-      "tools": ["Python"],
-      "documentation": "https://chaski-confluent.readthedocs.io/en/latest/",
-      "repository": "https://github.com/dunderlab/python-chaski",
-      "logo": "https://chaski-confluent.readthedocs.io/en/latest/_static/logo.svg",
-      "year": "2024",
+      "tools": ["Python", "OpenBCI", "Kafka", "GNU/Linux", "Raspberry Pi"],
+      "documentation": "https://openbci-stream.readthedocs.io/",
+      "repository": "https://github.com/dunderlab/openbci-stream",
+      "logo": "https://openbci-stream.readthedocs.io/en/latest/_static/logo.svg",
+      "year": "2019",
+    },
+    {
+      "name": "Qt Material",
+      "type": {"en": "GUI theme", "es": "Tema gráfico"},
+      "description": {
+        "en": "This is another stylesheet for PySide6, PySide2, PyQt5 and PyQt6, which looks like Material Design (close enough).",
+        "es": "Otro conjunto de estilos para PySide6, PySide2, PyQt5 y PyQt6, con aspecto similar a Material Design."
+      },
+      "tools": ["Python", "OpenBCI", "Kafka", "GNU/Linux", "Raspberry Pi"],
+      "documentation": "https://qt-material.readthedocs.io/",
+      "repository": "https://github.com/dunderlab/qt-material",
+      "logo": "https://qt-material.readthedocs.io/en/latest/_static/logo.png",
+      "year": "2019",
     },
     {
       "name": "Dunderlab - visualizations",

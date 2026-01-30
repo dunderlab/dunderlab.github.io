@@ -14,26 +14,37 @@ export class ClientsComponent {
 
   constructor(public themeService: ThemeService) { }
 
-  alliances= {
-
-    alliances: [
-    '/assets/images/clients/Logo_de_la_Universidad_de_Caldas.svg',
-    '/assets/images/clients/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg',
-    '/assets/images/clients/utp_universidad_tecnologica_de_pereira.svg',
-  ],
+  clients = {
+    logos: [
+      '/assets/images/clients/Logo_de_la_Universidad_de_Caldas.svg',
+      '/assets/images/clients/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg',
+      '/assets/images/clients/utp_universidad_tecnologica_de_pereira.svg',
+    ],
     title: {
       en: '',
-      es: 'Colaboración en I+D y provisión de tecnología especializada.'
+      es: 'Colaboraciones institucionales',
     },
     about: {
-      en: '',
-      es: 'Organizaciones con las que colaboramos en I+D, transferencia tecnológica y provisión de instrumentación y soluciones técnicas especializadas.'
+      en: 'Organizations that contracted our engineering, R&D, and specialized technology services.',
+      es: 'Organizaciones que contrataron nuestros servicios de ingeniería, I+D y provisión de tecnología especializada.'
     }
-
-
   }
 
 
+  mentors = {
+    logos: [
+      '/assets/images/support/logo-cientech.png',
+      '/assets/images/support/Logo_innpulsa_color.png',
+    ],
+    title: {
+      en: '',
+      es: 'Apoyo al crecimiento'
+    },
+    about: {
+      en: 'Organizations that provided mentorship, incubation, and strategic support for growth.',
+      es: 'Organizaciones que brindaron mentoría, acompañamiento estratégico e impulso al crecimiento de nuestros proyectos.'
+    }
+  }
 
 
 }

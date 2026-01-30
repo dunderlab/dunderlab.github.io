@@ -1,16 +1,29 @@
 <app-container id="clients">
   <div class="container-clients container-10">
 
-
-    <h1 [innerHTML]="alliances.title.es" class="margin-bottom-extra-large"></h1>
-    <div class="grid-projects grid-responsive-3 grid-center">
-      @for (alliance of alliances.alliances; track alliance) {
-      <div class="alliance" [class.invert]="themeService.mode() === 'dark'" [style.background-image]="'url(' + alliance + ')'">
+    <div>
+      <h1 [innerHTML]="clients.title.es" class="margin-bottom-extra-large"></h1>
+      <div class="grid-projects grid-responsive-3 grid-center">
+        @for (logo of clients.logos; track logo) {
+          <div class="clients-icons" [class.invert]="themeService.mode() === 'dark'"
+               [style.background-image]="'url(' + logo + ')'">
+          </div>
+        }
       </div>
-      }
+      <p [innerHTML]="clients.about.es" class="align-center margin-top-large"></p>
     </div>
-     <p [innerHTML]="alliances.about.es" class="align-center margin-top-large"></p>
 
+    <div class="mentors">
+      <h1 [innerHTML]="mentors.title.es" class="margin-bottom-extra-large"></h1>
+      <div class="grid-projects grid-responsive-2 grid-center">
+        @for (logo of mentors.logos; track logo) {
+          <div class="mentors-icons" [class.invert]="themeService.mode() === 'dark'"
+               [style.background-image]="'url(' + logo + ')'">
+          </div>
+        }
+      </div>
+      <p [innerHTML]="mentors.about.es" class="align-center margin-top-large"></p>
+    </div>
 
   </div>
 </app-container>

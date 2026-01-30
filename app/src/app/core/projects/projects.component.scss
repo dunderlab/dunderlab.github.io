@@ -4,6 +4,16 @@
   @include mat.chips-overrides((
     container-height: 1.5rem,
   ));
+
+
+  .on_development {
+    @include mat.chips-overrides((
+      label-text-color: var(--mat-sys-on-tertiary-container),
+      outline-color: transparent,
+    ));
+  }
+
+
 }
 
 .container-mission {
@@ -21,8 +31,11 @@ mat-card {
   align-items: flex-end;
 }
 
-.project-icon {
-  background-size: cover;
+.mat-mdc-card-avatar {
+  border-radius: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 70px;
   height: 70px;
 }
@@ -58,3 +71,20 @@ mat-icon {
    border-left: none;
    margin-right: -1px;
  }
+
+.on_development {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  //background-color: var(--mat-sys-error);
+}
+
+.to_right {
+  left: unset;
+  right: 1rem;
+  text-align: right;
+}
+
+.on_development mat-chip {
+  background-color: var(--mat-sys-tertiary-container);
+}

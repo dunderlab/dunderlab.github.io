@@ -18,7 +18,7 @@ export const NAVBAR_ITEMS:navbarItem[] = [
     fragment: 'projects'
   },
   {
-    label: 'Clientes',
+    label: 'Colaboraciones',
     fragment: 'clients'
   },
   {
