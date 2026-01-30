@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # Set this to your default branch
+    paths-ignore:
+      - 'docs/**'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
