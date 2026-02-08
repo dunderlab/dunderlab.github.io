@@ -27,7 +27,7 @@
           </mat-card-header>
 
           <mat-card-content>
-            <p dir="ltr" [class.to_right]="$index % 2 === 0" [innerHTML]="project.description.en"></p>
+            <p dir="ltr" [class.to_right]="$index % 2 === 0" [innerHTML]="project.description.es"></p>
             <mat-chip-set>
               @for (tool of project.tools; track tool) {
                 <mat-chip>{{tool}}</mat-chip>
